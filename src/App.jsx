@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Home as HomeIcon, BookOpen, AlertCircle, Plus, BarChart3, Volume2, X, Check, Flame, Trophy, Sparkles, ChevronRight, ArrowLeft, Zap, Heart, Music, Trash2, Edit3, Play, Eye, EyeOff, ListPlus, Save } from 'lucide-react';
 
-// localStorage wrapper compatible with Claude's storage API
+// localStorage wrapper compatible with Claude's window.storage API
 const storage = {
   async get(key) {
     try {
@@ -682,20 +682,21 @@ function StudyScreen({ config, allWords, mistakeIds, onFinish, onExit }) {
     setQuestions(qs);
   }, []);
 
-  if (questions.length === 0) {
-    return <div className="pt-20 text-center text-white/60">Loading...</div>;
-  }
-
   const q = questions[index];
-  const progress = ((index + (showFeedback ? 1 : 0)) / questions.length) * 100;
 
-  // Auto-play audio for listen questions
+  // Auto-play audio for listen questions (must be before any early return)
   useEffect(() => {
     if (q && q.dir === 'listen' && !showFeedback) {
       const t = setTimeout(() => speak(q.word.chinese), 300);
       return () => clearTimeout(t);
     }
   }, [index, q?.dir, showFeedback]);
+
+  if (questions.length === 0) {
+    return <div className="pt-20 text-center text-white/60">Loading...</div>;
+  }
+
+  const progress = ((index + (showFeedback ? 1 : 0)) / questions.length) * 100;
 
   const handleSelect = (opt) => {
     if (showFeedback) return;
