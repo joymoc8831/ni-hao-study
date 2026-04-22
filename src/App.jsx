@@ -78,27 +78,128 @@ const INITIAL_WORDS = [
   { id: 'w38', chinese: '今天', pinyin: 'jīn tiān', japanese: '今日', category: 'number' },
   { id: 'w39', chinese: '明天', pinyin: 'míng tiān', japanese: '明日', category: 'number' },
   { id: 'w40', chinese: '昨天', pinyin: 'zuó tiān', japanese: '昨日', category: 'number' },
+  // 相槌
+  { id: 'w41', chinese: '当然啊', pinyin: 'dāng rán a', japanese: 'もちろん', category: 'aizuchi' },
+  { id: 'w42', chinese: '是的', pinyin: 'shì de', japanese: 'そうです', category: 'aizuchi' },
+  { id: 'w43', chinese: '是啊', pinyin: 'shì a', japanese: 'そうだよ', category: 'aizuchi' },
+  { id: 'w44', chinese: '是呢', pinyin: 'shì ne', japanese: 'そうだね', category: 'aizuchi' },
+  { id: 'w45', chinese: '对对', pinyin: 'duì duì', japanese: 'そうそう！', category: 'aizuchi' },
+  { id: 'w46', chinese: '可以呀', pinyin: 'kě yǐ ya', japanese: 'いいよ！', category: 'aizuchi' },
+  { id: 'w47', chinese: '原来如此呢', pinyin: 'yuán lái rú cǐ ne', japanese: 'なるほど', category: 'aizuchi' },
+  { id: 'w48', chinese: '确实', pinyin: 'què shí', japanese: 'たしかに', category: 'aizuchi' },
+  { id: 'w49', chinese: '对吗', pinyin: 'duì ma', japanese: '合ってる？', category: 'aizuchi' },
+  { id: 'w50', chinese: '没错', pinyin: 'méi cuò', japanese: 'その通り', category: 'aizuchi' },
+  { id: 'w51', chinese: '好的', pinyin: 'hǎo de', japanese: 'わかった', category: 'aizuchi' },
+  { id: 'w52', chinese: '真的啊', pinyin: 'zhēn de a', japanese: '本当に？', category: 'aizuchi' },
+  { id: 'w53', chinese: '是吗', pinyin: 'shì ma', japanese: 'そうなの？', category: 'aizuchi' },
+  { id: 'w54', chinese: '我懂', pinyin: 'wǒ dǒng', japanese: 'わかる（共感）', category: 'aizuchi' },
+  { id: 'w55', chinese: '我明白', pinyin: 'wǒ míng bai', japanese: '理解した', category: 'aizuchi' },
+  { id: 'w56', chinese: '太好了', pinyin: 'tài hǎo le', japanese: 'よかった（共感）', category: 'aizuchi' },
+  { id: 'w57', chinese: '不错', pinyin: 'bú cuò', japanese: 'いいね！', category: 'aizuchi' },
+  { id: 'w58', chinese: '好厉害', pinyin: 'hǎo lì hai', japanese: 'すごい！', category: 'aizuchi' },
+  // 形容詞
+  { id: 'w59', chinese: '可爱', pinyin: 'kě ài', japanese: 'かわいい', category: 'adjective' },
+  { id: 'w60', chinese: '完美', pinyin: 'wán měi', japanese: '完璧', category: 'adjective' },
+  { id: 'w61', chinese: '真的', pinyin: 'zhēn de', japanese: '本当に', category: 'adjective' },
+  { id: 'w62', chinese: '非常', pinyin: 'fēi cháng', japanese: 'めちゃくちゃ', category: 'adjective' },
+  { id: 'w63', chinese: '和', pinyin: 'hé', japanese: '〜と〜（AとB）', category: 'adjective' },
+  { id: 'w64', chinese: '好吃', pinyin: 'hǎo chī', japanese: '美味しい', category: 'adjective' },
+  // 動詞（追加分）
+  { id: 'w65', chinese: '做', pinyin: 'zuò', japanese: 'する', category: 'verb' },
+  { id: 'w66', chinese: '说', pinyin: 'shuō', japanese: '話す', category: 'verb' },
+  { id: 'w67', chinese: '写', pinyin: 'xiě', japanese: '書く', category: 'verb' },
+  { id: 'w68', chinese: '觉得', pinyin: 'jué de', japanese: '思う', category: 'verb' },
+  // 文型
+  { id: 'w69', chinese: '我觉得～', pinyin: 'wǒ jué de', japanese: '〜だと思う', category: 'sentence' },
+  { id: 'w70', chinese: '我喜欢～', pinyin: 'wǒ xǐ huan', japanese: '〜が好き', category: 'sentence' },
+  { id: 'w71', chinese: '我想～', pinyin: 'wǒ xiǎng', japanese: '〜したい', category: 'sentence' },
+  { id: 'w72', chinese: '我可以～', pinyin: 'wǒ kě yǐ', japanese: '〜できる（可能）', category: 'sentence' },
+  { id: 'w73', chinese: '我能～', pinyin: 'wǒ néng', japanese: '〜できる（能力）', category: 'sentence' },
+  { id: 'w74', chinese: '有～', pinyin: 'yǒu', japanese: '〜がある', category: 'sentence' },
+  { id: 'w75', chinese: '没有～', pinyin: 'méi yǒu', japanese: '〜がない', category: 'sentence' },
+  { id: 'w76', chinese: '～了', pinyin: 'le', japanese: '〜した（完了）', category: 'sentence' },
+  { id: 'w77', chinese: '还没～', pinyin: 'hái méi', japanese: 'まだ〜してない', category: 'sentence' },
+  { id: 'w78', chinese: '在～', pinyin: 'zài', japanese: '〜している（進行）', category: 'sentence' },
+  { id: 'w79', chinese: '好像～', pinyin: 'hǎo xiàng', japanese: '〜のようだ', category: 'sentence' },
+  { id: 'w80', chinese: '～过', pinyin: 'guo', japanese: '〜したことがある', category: 'sentence' },
+  { id: 'w81', chinese: '想要～', pinyin: 'xiǎng yào', japanese: '〜したいと思う', category: 'sentence' },
+  { id: 'w82', chinese: '要～', pinyin: 'yào', japanese: '〜しないといけない', category: 'sentence' },
+  { id: 'w83', chinese: '刚～', pinyin: 'gāng', japanese: '〜したばかり', category: 'sentence' },
+  { id: 'w84', chinese: '打算～', pinyin: 'dǎ suàn', japanese: '〜するつもり', category: 'sentence' },
+  { id: 'w85', chinese: '懂～', pinyin: 'dǒng', japanese: '〜がわかる', category: 'sentence' },
+  { id: 'w86', chinese: '原来～啊', pinyin: 'yuán lái … a', japanese: '〜なんだ（共感）', category: 'sentence' },
+  { id: 'w87', chinese: '其实～', pinyin: 'qí shí', japanese: '実は〜', category: 'sentence' },
+  { id: 'w88', chinese: '我们～吧', pinyin: 'wǒ men … ba', japanese: '一緒に〜しよう', category: 'sentence' },
+  { id: 'w89', chinese: '我试试～', pinyin: 'wǒ shì shi', japanese: '〜してみよう', category: 'sentence' },
+  { id: 'w90', chinese: '要不要～', pinyin: 'yào bú yào', japanese: '〜する？', category: 'sentence' },
+  // ファン用語（コンサート・トレカ）
+  { id: 'w91', chinese: '彩排', pinyin: 'cǎi pái', japanese: 'リハーサル（サウチェ）', category: 'fan' },
+  { id: 'w92', chinese: '换', pinyin: 'huàn', japanese: '交換する', category: 'fan' },
+  { id: 'w93', chinese: '蹲蹲', pinyin: 'dūn dūn', japanese: '待機（dd）', category: 'fan' },
+  { id: 'w94', chinese: '踢踢', pinyin: 'tī tī', japanese: '申請通知（tt）', category: 'fan' },
 ];
 
 const CATEGORY_LABELS = {
   greeting: '挨拶',
+  aizuchi: '相槌',
   basic: '基礎',
   verb: '動詞',
+  adjective: '形容詞',
   emotion: '感情・詞世界',
   phrase: 'フレーズ',
+  sentence: '文型',
   number: '数字・時間',
+  fan: 'ファン用語',
   custom: 'マイ単語',
 };
 
 const CATEGORY_COLORS = {
   greeting: '#ff2d7c',
+  aizuchi: '#ff9e00',
   basic: '#00e5ff',
   verb: '#ffd60a',
+  adjective: '#4ade80',
   emotion: '#ff2d7c',
   phrase: '#c77dff',
+  sentence: '#60a5fa',
   number: '#00e5ff',
+  fan: '#f472b6',
   custom: '#ffd60a',
 };
+
+// Word difficulty levels — level 1 (入門) / 3 (上級) explicit, everything else is level 2 (中級)
+const LEVEL_1_IDS = new Set([
+  'w1','w2','w3','w4','w5','w6',          // 挨拶
+  'w7','w8','w9','w10','w11','w12',       // 基礎
+  'w13','w14','w15','w16','w17','w18',    // 基本動詞
+  'w29','w30','w31',                      // 簡単な文
+  'w35','w36','w37','w38','w39','w40',    // 数字・時間
+  'w42','w43','w45','w51',                // 定番の相槌
+  'w59','w61','w64',                      // 簡単な形容詞
+  'w65','w66','w67',                      // 基本動詞2
+]);
+const LEVEL_3_IDS = new Set([
+  'w23','w26',                            // 抽象語（永远・回忆）
+  'w72','w73','w76','w77','w78','w79','w80',  // 文法パターン
+  'w81','w82','w83','w84','w85','w86','w87','w88','w89','w90',  // 文法パターン
+  'w91','w92','w93','w94',                // ファン用語
+]);
+
+const getWordLevel = (id) => {
+  if (LEVEL_1_IDS.has(id)) return 1;
+  if (LEVEL_3_IDS.has(id)) return 3;
+  return 2;
+};
+
+// User level → max unlocked word level
+const getUnlockedMaxLevel = (userLevel) => {
+  if (userLevel <= 1) return 1;
+  if (userLevel <= 3) return 2;
+  return 3;
+};
+
+// Next word-level unlock requirements (user-level needed)
+const NEXT_UNLOCK_USER_LEVEL = { 1: 2, 2: 4, 3: null };
 
 const DEFAULT_DATA = {
   stats: {
@@ -248,7 +349,12 @@ export default function App() {
     }
   };
 
-  const allWords = [...INITIAL_WORDS, ...data.customWords];
+  const userLevel = data.stats.level;
+  const maxWordLevel = getUnlockedMaxLevel(userLevel);
+  const unlockedInitialWords = INITIAL_WORDS.filter((w) => getWordLevel(w.id) <= maxWordLevel);
+  const lockedInitialWords = INITIAL_WORDS.filter((w) => getWordLevel(w.id) > maxWordLevel);
+  const allWords = [...unlockedInitialWords, ...data.customWords];
+  const allWordsIncludingLocked = [...INITIAL_WORDS, ...data.customWords];
 
   const recordStudy = (results) => {
     // results: [{ wordId, correct }]
@@ -386,7 +492,7 @@ export default function App() {
     <div className="min-h-screen relative" style={{ background: 'radial-gradient(ellipse at top, #1a0830 0%, #0a0614 60%, #050208 100%)', fontFamily: "'Noto Sans JP', sans-serif" }}>
       <FontAndGlobals />
       <div className="max-w-md mx-auto pb-28 relative">
-        {screen === 'home' && <HomeScreen data={data} allWords={allWords} activeProfile={activeProfile} onStart={(cfg) => { setStudyConfig(cfg); setScreen('study'); }} onNavigate={setScreen} onProfileClick={() => setShowProfileMenu(true)} />}
+        {screen === 'home' && <HomeScreen data={data} allWords={allWords} lockedCount={lockedInitialWords.length} userLevel={userLevel} activeProfile={activeProfile} onStart={(cfg) => { setStudyConfig(cfg); setScreen('study'); }} onNavigate={setScreen} onProfileClick={() => setShowProfileMenu(true)} />}
         {screen === 'study' && <StudyScreen config={studyConfig} allWords={allWords} mistakeIds={data.mistakeIds} onFinish={(results) => { recordStudy(results); setScreen('result'); setStudyConfig({ ...studyConfig, results }); }} onExit={() => setScreen(studyConfig?.backTo || 'home')} />}
         {screen === 'result' && <ResultScreen results={studyConfig?.results || []} allWords={allWords} onContinue={() => setScreen(studyConfig?.backTo || 'home')} />}
         {screen === 'mistakes' && <MistakesScreen mistakeIds={data.mistakeIds} allWords={allWords} onStart={(cfg) => { setStudyConfig(cfg); setScreen('study'); }} />}
@@ -395,7 +501,7 @@ export default function App() {
         {screen === 'songs' && <SongsListScreen songs={data.songs} onOpen={(id) => { setActiveSongId(id); setScreen('song-study'); }} onNew={() => { setActiveSongId('new'); setScreen('song-edit'); }} />}
         {screen === 'song-edit' && <SongEditScreen song={activeSongId === 'new' ? null : activeSong} onSave={(s) => { saveSong(s); setActiveSongId(s.id); setScreen('song-study'); }} onCancel={() => setScreen(activeSongId === 'new' ? 'songs' : 'song-study')} />}
         {screen === 'song-study' && activeSong && <SongStudyScreen song={activeSong} allWords={allWords} onEdit={() => setScreen('song-edit')} onDelete={() => deleteSong(activeSong.id)} onBack={() => setScreen('songs')} onAddAllToVocab={addSongLinesToVocab} onQuizSong={() => { setStudyConfig({ mode: 'mixed', wordIds: null, songLines: activeSong.lines, backTo: 'song-study' }); setScreen('study'); }} />}
-        {screen === 'phrasebook' && <PhrasebookScreen allWords={allWords} progress={data.progress} mistakeIds={data.mistakeIds} onBack={() => setScreen('home')} onQuiz={(wordIds, mode) => { setStudyConfig({ mode: mode || 'mixed', wordIds, categoryKey: null, backTo: 'phrasebook' }); setScreen('study'); }} />}
+        {screen === 'phrasebook' && <PhrasebookScreen allWords={allWords} allWordsIncludingLocked={allWordsIncludingLocked} userLevel={userLevel} maxWordLevel={maxWordLevel} progress={data.progress} mistakeIds={data.mistakeIds} onBack={() => setScreen('home')} onQuiz={(wordIds, mode) => { setStudyConfig({ mode: mode || 'mixed', wordIds, categoryKey: null, backTo: 'phrasebook' }); setScreen('study'); }} />}
       </div>
       {!['study', 'song-edit'].includes(screen) && <BottomNav current={screen} onChange={(s) => { setScreen(s); }} />}
       {showProfileMenu && (
@@ -438,7 +544,7 @@ function FontAndGlobals() {
 }
 
 /* ---------- HOME ---------- */
-function HomeScreen({ data, allWords, activeProfile, onStart, onNavigate, onProfileClick }) {
+function HomeScreen({ data, allWords, lockedCount, userLevel, activeProfile, onStart, onNavigate, onProfileClick }) {
   const { stats, mistakeIds } = data;
   const xpInLevel = stats.xp % 100;
   const studiedToday = stats.lastStudyDate === todayISO();
@@ -449,6 +555,12 @@ function HomeScreen({ data, allWords, activeProfile, onStart, onNavigate, onProf
     listening: { label: 'リスニング', sub: '音を聞いて意味を当てる', icon: Volume2 },
     translation: { label: '作文', sub: '日本語→中国語', icon: Edit3 },
   };
+
+  // Compute next unlock info
+  const maxWordLevel = getUnlockedMaxLevel(userLevel);
+  const nextUserLevel = NEXT_UNLOCK_USER_LEVEL[maxWordLevel];
+  const levelNames = { 1: '入門', 2: '中級', 3: '上級' };
+  const nextWordLevelName = nextUserLevel ? levelNames[maxWordLevel + 1] : null;
 
   const categories = [
     { key: 'all', label: 'すべて', sub: `${allWords.length}語` },
@@ -481,7 +593,7 @@ function HomeScreen({ data, allWords, activeProfile, onStart, onNavigate, onProf
       </div>
 
       {/* XP Bar */}
-      <div className="mb-5">
+      <div className="mb-3">
         <div className="flex items-center justify-between mb-1.5 text-xs">
           <span className="text-white/60">あと {100 - xpInLevel} XP でレベルアップ</span>
           <span className="text-white font-mono">{xpInLevel}/100</span>
@@ -490,6 +602,27 @@ function HomeScreen({ data, allWords, activeProfile, onStart, onNavigate, onProf
           <div className="h-full transition-all duration-700" style={{ width: `${xpInLevel}%`, background: 'linear-gradient(90deg, #ff2d7c 0%, #ffd60a 100%)' }} />
         </div>
       </div>
+
+      {/* Unlock Info */}
+      {lockedCount > 0 && nextUserLevel && (
+        <div className="mb-5 p-3 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-2.5">
+          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-yellow-400/20 to-pink-400/20 flex items-center justify-center flex-shrink-0">
+            <Trophy className="w-3.5 h-3.5 text-yellow-300" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="text-white text-xs font-bold leading-tight">
+              Lv.{nextUserLevel} で <span className="text-yellow-300">{nextWordLevelName}</span> 単語が解放
+            </div>
+            <div className="text-white/50 text-[10px] mt-0.5">ロック中 {lockedCount} 語・あと {(nextUserLevel - userLevel) * 100 - xpInLevel} XP</div>
+          </div>
+        </div>
+      )}
+      {lockedCount === 0 && userLevel >= 4 && (
+        <div className="mb-5 p-3 rounded-xl bg-gradient-to-r from-yellow-400/10 to-pink-400/10 border border-yellow-400/20 flex items-center gap-2.5">
+          <Sparkles className="w-4 h-4 text-yellow-300 flex-shrink-0" />
+          <div className="text-yellow-200 text-xs font-bold">全単語アンロック済み — 你真厉害！</div>
+        </div>
+      )}
 
       {/* Stat Pills */}
       <div className="grid grid-cols-3 gap-2 mb-6">
@@ -563,18 +696,34 @@ function HomeScreen({ data, allWords, activeProfile, onStart, onNavigate, onProf
         </div>
         <div className="grid grid-cols-2 gap-2">
           {categories.map((c) => {
-            const count = c.key === 'all' ? allWords.length : allWords.filter((w) => w.category === c.key).length;
-            if (count === 0 && c.key !== 'all') return null;
+            if (c.key === 'custom') return null;
+            const unlockedCount = c.key === 'all' ? allWords.length : allWords.filter((w) => w.category === c.key).length;
+            const totalInitialCount = c.key === 'all' ? INITIAL_WORDS.length : INITIAL_WORDS.filter((w) => w.category === c.key).length;
+            const customCount = c.key === 'all' ? data.customWords.length : (c.key === 'custom' ? data.customWords.length : 0);
+            const totalCount = totalInitialCount + customCount;
+            const lockedInCat = totalCount - unlockedCount;
+            if (totalCount === 0 && c.key !== 'all') return null;
+            const fullyLocked = unlockedCount === 0;
             const color = c.key === 'all' ? '#ffffff' : CATEGORY_COLORS[c.key] || '#ffffff';
             return (
               <button
                 key={c.key}
-                onClick={() => onStart({ mode: quizMode, wordIds: null, categoryKey: c.key })}
-                className="p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition text-left"
+                onClick={() => !fullyLocked && onStart({ mode: quizMode, wordIds: null, categoryKey: c.key })}
+                disabled={fullyLocked}
+                className={`p-3.5 rounded-xl border text-left transition ${fullyLocked ? 'bg-white/[0.02] border-white/5 opacity-50 cursor-not-allowed' : 'bg-white/5 hover:bg-white/10 border-white/5 hover:border-white/20'}`}
               >
-                <div className="w-1.5 h-1.5 rounded-full mb-2" style={{ background: color, boxShadow: `0 0 10px ${color}` }} />
-                <div className="text-white font-bold text-sm">{c.label}</div>
-                <div className="text-white/40 text-xs font-mono">{count} 语</div>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ background: fullyLocked ? '#ffffff30' : color, boxShadow: fullyLocked ? 'none' : `0 0 10px ${color}` }} />
+                  {lockedInCat > 0 && (
+                    <div className="flex items-center gap-0.5 text-[9px] text-white/40 font-mono">
+                      🔒 {lockedInCat}
+                    </div>
+                  )}
+                </div>
+                <div className={`font-bold text-sm ${fullyLocked ? 'text-white/40' : 'text-white'}`}>{c.label}</div>
+                <div className="text-white/40 text-xs font-mono">
+                  {unlockedCount}{totalCount !== unlockedCount ? `/${totalCount}` : ''} 语
+                </div>
               </button>
             );
           })}
@@ -1416,15 +1565,20 @@ function SongStudyScreen({ song, allWords, onEdit, onDelete, onBack, onAddAllToV
 }
 
 /* ---------- PHRASEBOOK ---------- */
-function PhrasebookScreen({ allWords, progress, mistakeIds, onBack, onQuiz }) {
+function PhrasebookScreen({ allWords, allWordsIncludingLocked, userLevel, maxWordLevel, progress, mistakeIds, onBack, onQuiz }) {
   const [query, setQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all'); // all | unseen | learning | mastered | mistake
   const [selected, setSelected] = useState(null);
+  const [showLocked, setShowLocked] = useState(false);
+
+  const displayPool = showLocked ? (allWordsIncludingLocked || allWords) : allWords;
+  const unlockedIds = new Set(allWords.map((w) => w.id));
+  const lockedCount = (allWordsIncludingLocked?.length || 0) - allWords.length;
 
   const categories = [
     { key: 'all', label: 'すべて' },
-    ...Object.keys(CATEGORY_LABELS).filter((k) => allWords.some((w) => w.category === k)).map((k) => ({
+    ...Object.keys(CATEGORY_LABELS).filter((k) => displayPool.some((w) => w.category === k)).map((k) => ({
       key: k,
       label: CATEGORY_LABELS[k],
     })),
@@ -1452,9 +1606,11 @@ function PhrasebookScreen({ allWords, progress, mistakeIds, onBack, onQuiz }) {
   };
 
   const q = query.trim().toLowerCase();
-  const filtered = allWords.filter((w) => {
+  const filtered = displayPool.filter((w) => {
     if (categoryFilter !== 'all' && w.category !== categoryFilter) return false;
-    if (statusFilter !== 'all' && statusOf(w.id) !== statusFilter) return false;
+    const isLocked = !unlockedIds.has(w.id);
+    if (statusFilter !== 'all' && !isLocked && statusOf(w.id) !== statusFilter) return false;
+    if (statusFilter !== 'all' && isLocked) return false;
     if (!q) return true;
     return (
       w.chinese.toLowerCase().includes(q) ||
@@ -1479,8 +1635,20 @@ function PhrasebookScreen({ allWords, progress, mistakeIds, onBack, onQuiz }) {
           <div className="text-cyan-300/70 text-xs uppercase tracking-widest font-mono">Phrasebook</div>
           <h1 className="font-display text-2xl font-extrabold text-white">単語帳</h1>
         </div>
-        <div className="text-white/50 text-xs font-mono">{filtered.length} / {allWords.length}</div>
+        <div className="text-white/50 text-xs font-mono">{filtered.length} / {displayPool.length}</div>
       </div>
+
+      {/* Lock Toggle */}
+      {lockedCount > 0 && (
+        <div className="px-5 mb-3">
+          <button
+            onClick={() => setShowLocked(!showLocked)}
+            className={`w-full p-2.5 rounded-xl border flex items-center justify-center gap-2 text-xs font-bold transition ${showLocked ? 'bg-yellow-400/10 border-yellow-400/30 text-yellow-200' : 'bg-white/[0.03] border-white/10 text-white/60 hover:border-white/20'}`}
+          >
+            {showLocked ? '🔓 ロック中も表示中' : `🔒 ロック中 ${lockedCount} 語を表示する`}
+          </button>
+        </div>
+      )}
 
       {/* Search */}
       <div className="px-5 mb-3">
@@ -1563,13 +1731,15 @@ function PhrasebookScreen({ allWords, progress, mistakeIds, onBack, onQuiz }) {
           </div>
         ) : (
           filtered.map((w) => {
-            const status = statusOf(w.id);
+            const isLocked = !unlockedIds.has(w.id);
+            const status = isLocked ? null : statusOf(w.id);
             const isOpen = selected === w.id;
             const p = progress?.[w.id];
+            const wordLevel = getWordLevel(w.id);
             return (
               <div
                 key={w.id}
-                className="rounded-xl bg-white/[0.03] border border-white/10 overflow-hidden"
+                className={`rounded-xl border overflow-hidden transition ${isLocked ? 'bg-white/[0.015] border-white/5 opacity-60' : 'bg-white/[0.03] border-white/10'}`}
               >
                 <button
                   onClick={() => setSelected(isOpen ? null : w.id)}
@@ -1577,10 +1747,13 @@ function PhrasebookScreen({ allWords, progress, mistakeIds, onBack, onQuiz }) {
                 >
                   <div
                     className="w-1 h-10 rounded-full flex-shrink-0"
-                    style={{ background: STATUS_COLORS[status] }}
+                    style={{ background: isLocked ? '#ffffff20' : STATUS_COLORS[status] }}
                   />
                   <div className="flex-1 min-w-0">
-                    <div className="font-cn text-lg font-bold text-white leading-tight truncate">{w.chinese}</div>
+                    <div className="flex items-center gap-1.5">
+                      <div className="font-cn text-lg font-bold text-white leading-tight truncate">{w.chinese}</div>
+                      {isLocked && <span className="text-[10px]">🔒</span>}
+                    </div>
                     <div className="flex items-center gap-2 text-[11px] mt-0.5">
                       {w.pinyin && <span className="text-pink-300/80 font-mono truncate">{w.pinyin}</span>}
                       <span className="text-white/60 truncate">{w.japanese}</span>
@@ -1596,13 +1769,19 @@ function PhrasebookScreen({ allWords, progress, mistakeIds, onBack, onQuiz }) {
                 {isOpen && (
                   <div className="px-3 pb-3 pt-1 border-t border-white/5 bg-black/20 animate-slideUp">
                     <div className="flex items-center gap-2 mb-2 flex-wrap">
-                      <div className="px-2 py-0.5 rounded-md text-[10px] font-bold" style={{ background: STATUS_COLORS[status] + '20', color: STATUS_COLORS[status] }}>
-                        {STATUS_LABELS[status]}
-                      </div>
+                      {isLocked ? (
+                        <div className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-yellow-400/10 text-yellow-300">
+                          Lv.{wordLevel === 2 ? 2 : 4} で解放
+                        </div>
+                      ) : (
+                        <div className="px-2 py-0.5 rounded-md text-[10px] font-bold" style={{ background: STATUS_COLORS[status] + '20', color: STATUS_COLORS[status] }}>
+                          {STATUS_LABELS[status]}
+                        </div>
+                      )}
                       <div className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-white/5 text-white/60">
                         {CATEGORY_LABELS[w.category] || w.category}
                       </div>
-                      {p && (
+                      {p && !isLocked && (
                         <div className="text-[10px] font-mono text-white/50">
                           <span className="text-green-400">✓{p.correctCount}</span>
                           <span className="mx-1.5 text-red-400">✗{p.wrongCount}</span>
@@ -1610,12 +1789,14 @@ function PhrasebookScreen({ allWords, progress, mistakeIds, onBack, onQuiz }) {
                       )}
                     </div>
                     <div className="text-white/70 text-sm leading-relaxed">{w.japanese}</div>
-                    <button
-                      onClick={() => onQuiz([w.id], 'mixed')}
-                      className="mt-2 px-3 py-1.5 rounded-lg bg-pink-500/10 border border-pink-400/30 text-pink-300 text-xs font-bold"
-                    >
-                      この単語を練習
-                    </button>
+                    {!isLocked && (
+                      <button
+                        onClick={() => onQuiz([w.id], 'mixed')}
+                        className="mt-2 px-3 py-1.5 rounded-lg bg-pink-500/10 border border-pink-400/30 text-pink-300 text-xs font-bold"
+                      >
+                        この単語を練習
+                      </button>
+                    )}
                   </div>
                 )}
               </div>
